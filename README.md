@@ -16,3 +16,7 @@ This repository contains the work-in-progress reimplementations of optimzation p
 3. Run the program with the following command:
 
 	python PROCOP.py
+
+## System Diagram
+
+![](schema.PNG)
