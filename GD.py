@@ -6,7 +6,7 @@ m1_experimental_data = np.array([0.09, 0.17, 0.28, 0.32, 0.35, 0.41])
 M1_experimental_data = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6])
 R1_init = 0.5
 R2_init = 0.5
-iters = 800
+iters = 500
 alpha = 0.01
 
 
@@ -37,12 +37,12 @@ def d_m1_numerator_R1(M1):
 
 # derivative of m1 numerator w.r.t. R2
 def d_m1_numerator_R2():
-    return 0
+    return 0.0
 
 
 # derivative of m1 denominator w.r.t. R1
 def d_m1_denominator_R1(M1):
-    return M1**2
+    return np.square(M1)
 
 
 # derivative of m1 denominator w.r.t. R2
@@ -75,11 +75,37 @@ def d_cost_R2(m1E, m1C, R1, R2, M1):
     return np.sum(np.multiply((m1E - m1C), d_m1_R2(R1, R2, M1)))
 
 
-if __name__ == "__main__":
+# plot results data
+def visualize(costs, R1s, R2s):
+    # plot costs
+    plt.subplot(1, 3, 1)
+    plt.plot(costs, 'r*')
+    plt.ylabel("Cost Value")
+    plt.xlabel("# Iterations")
+    plt.title("Cost vs Iterations")
+    # plot R1s
+    plt.subplot(1, 3, 2)
+    plt.plot(R1s, 'r*')
+    plt.ylabel("R1 Value")
+    plt.xlabel("# Iterations")
+    plt.title("R1 vs Iterations")
+    # plot R2s
+    plt.subplot(1, 3, 3)
+    plt.plot(R2s, 'r*')
+    plt.ylabel("R2 Value")
+    plt.xlabel("# Iterations")
+    plt.title("R2 vs Iterations")
+    plt.show()
+
+
+# core gradient descent implementation
+def GD():
     print("starting gradient descent optimization")
     R1 = R1_init
     R2 = R2_init
     costs = np.zeros(iters)
+    R1s = np.zeros(iters)
+    R2s = np.zeros(iters)
     for i in range(iters):
         m1C = m1(R1, R2, M1_experimental_data)
         current_cost = cost(m1_experimental_data, m1C)
@@ -90,9 +116,12 @@ if __name__ == "__main__":
         if R2 >= 0.0:
             R2 += alpha * derivative_cost_R2
         costs[i] = current_cost
+        R1s[i] = R1
+        R2s[i] = R2
         print("iteration=", i, " cost=", current_cost, "R1=", R1, "R2=", R2)
+    visualize(costs, R1s, R2s)
 
-    plt.plot(costs, 'r*')
-    plt.ylabel("Cost Value")
-    plt.xlabel("# iterations")
-    plt.show()
+
+if __name__ == "__main__":
+    GD()
+
