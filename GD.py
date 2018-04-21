@@ -111,9 +111,9 @@ def GD():
         current_cost = cost(m1_experimental_data, m1C)
         derivative_cost_R1 = d_cost_R1(m1_experimental_data, m1C, R1, R2, M1_experimental_data)
         derivative_cost_R2 = d_cost_R2(m1_experimental_data, m1C, R1, R2, M1_experimental_data)
-        if R1 >= 0.0:
+        if R1 + alpha * derivative_cost_R1 >= 0.0:
             R1 += alpha * derivative_cost_R1
-        if R2 >= 0.0:
+        if R2 + alpha * derivative_cost_R2 >= 0.0:
             R2 += alpha * derivative_cost_R2
         costs[i] = current_cost
         R1s[i] = R1
