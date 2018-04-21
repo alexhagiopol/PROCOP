@@ -8,15 +8,16 @@ This repository contains the work-in-progress reimplementations of optimzation p
 
 1. Download and install Python 3 from the [offical website](https://www.python.org/downloads/). Be sure to enable Pip installation.
 2. In a terminal, cmd, or PowerShell window type the following:
-	
+	```
 	pip install xlwt
 	git clone https://github.com/alexhagiopol/PROCOP.git
 	cd PROCOP
-
+	```
 3. Run the program with the following command:
-
+	```
 	python PROCOP.py
-
+	```
+	
 ## System Diagram
 
 ![](schema.PNG)
