@@ -10,4 +10,4 @@ according to the paper [An Improved Method of Calculating Copolymerization React
 by Paul Tidwell and George Mortimer. The notes below show the cost function derivatives and update rule implemented
 in the code.
 
-![](figures/equations.JPG)
+![](figures/equations.PNG)
