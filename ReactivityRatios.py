@@ -110,7 +110,11 @@ def gradient_descent(m1_data, M1_data, r1_init, r2_init, iters, alpha):
 def main():
     print("Reactivity Ratios Calculation with Gradient Descent")
     # get data for m1 and M1
-    data_matrix_filename = input("Enter file containing m1 and M1 data:\n")
+    data_matrix_filename = input("Enter full file path containing m1 and M1 data."
+    "You can just drag & drop the file into this window then press Enter:\n")
+    # eliminate spaces that get added by OS at the end of filename
+    if data_matrix_filename[-1] == ' ':
+        data_matrix_filename = data_matrix_filename[0:-1]
     data_matrix = np.genfromtxt(data_matrix_filename, delimiter=',')
     if data_matrix.shape[0] != 2:
         print(
