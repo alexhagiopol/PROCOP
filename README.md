@@ -11,3 +11,9 @@ by Paul Tidwell and George Mortimer. The notes below show the cost function deri
 in the code.
 
 ![](figures/equations.PNG)
+
+Running the program on the included `m1` and `M1` dataset in `data.csv` with input values 
+`initial r1 = 0.143`, `initial r2 = 0.9626`, `iterations = 10000`, and `learning rate = 0.1`
+yields the following cost value convergence and reactivity ratio estimate plot:
+
+![](figures/plot.PNG)
