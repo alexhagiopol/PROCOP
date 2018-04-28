@@ -10,7 +10,7 @@ according to the paper [An Improved Method of Calculating Copolymerization React
 by Paul Tidwell and George Mortimer. The notes below show the cost function derivatives and update rule implemented
 in the code.
 
-![](figures/equations.PNG)
+<img src="figures/equations.PNG" align="center" width="600">
 
 Running the program on the included `m1` and `M1` dataset in `data.csv` with input values 
 `initial r1 = 0.143`, `initial r2 = 0.9626`, `iterations = 10000`, and `learning rate = 0.1`
